@@ -7,6 +7,7 @@ using CopaFilmes.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace CopaFilmes.Controllers
 {
@@ -18,6 +19,7 @@ namespace CopaFilmes.Controllers
 
         public FilmesController(IHttpClientFactory httpClientFactory)
         {
+            // get the reference to httpclient service
             _httpClientFactory = httpClientFactory;
         }
 
@@ -25,10 +27,14 @@ namespace CopaFilmes.Controllers
         [HttpGet]
         public async Task<ActionResult> Get()
         {
+            // create a httpclient to consume Filmes API
             var client = _httpClientFactory.CreateClient();
+            // set base address of API
             client.BaseAddress = new Uri("https://copadosfilmes.azurewebsites.net");
+            // set the route to API
             string result = await client.GetStringAsync("/api/filmes");
             
+            // return then list of movies
             return Ok(JsonConvert.DeserializeObject<IEnumerable<Filme>>(result));
         }
 
@@ -36,7 +42,15 @@ namespace CopaFilmes.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] IEnumerable<Filme> filmes)
         {
-            return Ok(SortFilmes(filmes));
+            // organize the list by names
+            var resultList = SortFilmes(filmes);
+
+            // execute until 2 movies on the list
+            while(resultList.Count() > 2)
+                resultList = ExecuteChallanges(resultList);
+
+            // return the result list
+            return Ok(resultList);
         }
 
         public static IEnumerable<Filme> SortFilmes(IEnumerable<Filme> originalList)
@@ -63,6 +77,34 @@ namespace CopaFilmes.Controllers
             return challangeList;
         }
 
+        public static IEnumerable<Filme> ExecuteChallanges(IEnumerable<Filme> listFilmes)
+        {
+            // convert the IEnumerable to List
+            var originalList = listFilmes.ToList();
+            // list to build the result list
+            List<Filme> resultList = new List<Filme>();
 
+            // verify if this is not be the final 
+            if (originalList.Count() > 2)
+            {
+                // loop to do all the challanges
+                while (originalList.Count() > 0)
+                {
+                    // execute the battle
+                    resultList.Add((originalList[0].nota * 10) >= (originalList[1].nota * 10) ? originalList[0] : originalList[1]);
+                    // remove the movies
+                    originalList.RemoveAt(0);
+                    originalList.RemoveAt(0);
+                }
+            }
+            else
+            {
+                // return both
+                resultList = originalList.OrderByDescending(filme => filme.nota).ToList();
+            }
+
+            // return the list of winners
+            return resultList;
+        }
     }
 }
