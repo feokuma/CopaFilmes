@@ -36,11 +36,31 @@ namespace CopaFilmes.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] IEnumerable<Filme> filmes)
         {
-            if(filmes.Count() < 8)
-                return BadRequest();
+            return Ok(SortFilmes(filmes));
+        }
 
-            var orderedList =  filmes.OrderBy(filme => filme.Titulo);
-            return Ok(orderedList);
+        public static IEnumerable<Filme> SortFilmes(IEnumerable<Filme> originalList)
+        {
+            // sort list using name of movie
+            var orderedList = originalList.OrderBy(filme => filme.titulo).ToList();
+
+            //create a new list to build the challenge list
+            List<Filme> challangeList = new List<Filme>();
+
+            //loop to build the result list
+            while(orderedList.Count() > 1)
+            {
+                // add items to a new list
+                challangeList.Add(orderedList.First());
+                challangeList.Add(orderedList.Last());
+
+                // remove items from the ordered list
+                orderedList.Remove(orderedList.Last());
+                orderedList.Remove(orderedList.First());
+            }
+
+            // return the challange list
+            return challangeList;
         }
 
 

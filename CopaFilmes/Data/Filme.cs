@@ -2,9 +2,9 @@ namespace CopaFilmes.Data
 {
     public class Filme
     {
-        public string Id { get; set; }
-        public string Titulo { get; set; } 
-        public int AnoLancamento { get; set; }  
-        public float Nota { get; set; }
+        public string id { get; set; }
+        public string titulo { get; set; } 
+        public int anoLancamento { get; set; }  
+        public double nota { get; set; }
     }
 }
