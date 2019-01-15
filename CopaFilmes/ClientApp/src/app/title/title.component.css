@@ -1,0 +1,9 @@
+.jumbotron{
+    background-color: darkgray;
+    align-items: center;
+    text-align: center;
+}
+
+h1, h6, hr{
+    color: white;
+}

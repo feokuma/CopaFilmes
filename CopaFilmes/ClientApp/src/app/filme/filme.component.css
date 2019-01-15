@@ -1,0 +1,23 @@
+.card {
+    width: 285px;
+    height: 60px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+}
+
+#primary{
+    margin-left: 5px;
+    margin-top: 20px;
+}
+
+#name {
+    font-weight: bold;
+}
