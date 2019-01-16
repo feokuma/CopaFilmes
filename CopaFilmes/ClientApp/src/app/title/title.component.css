@@ -1,7 +1,8 @@
 .jumbotron{
-    background-color: darkgray;
+    background-color: gray;
     align-items: center;
     text-align: center;
+    height: 230px;
 }
 
 h1, h6, hr{

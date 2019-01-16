@@ -1,9 +1,22 @@
 <div class="container">
   <app-title text="Fase de seleção" description="Selecione 8 filmes que você deseja que entrem na competição e depois pressione o botão
   gerar meu campeonato para prosseguir"></app-title>
-  <div class="row">
-    <div *ngFor="let filme of filmes">
-      <app-filme name="{{ filme.name }}" year="{{ filme.year }}"></app-filme>
+
+  <div id="selectionMovies" >
+    <div class="row">
+      <div class="col-md-9">
+        <p>Selecionados</p>
+        <p>{{ countSelectedMovies }} de 8 filmes</p>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-dark" [disabled]="countSelectedMovies != 8" (click)="executeChampionship()">GERAR MEU CAMPEONATO</button>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngFor="let filme of filmes">
+        <app-filme name="{{ filme.titulo }}" year="{{ filme.anoLancamento }}" (selectionChange)="selectionChange($event, name)"></app-filme>
+      </div>
     </div>
   </div>
+
 </div>

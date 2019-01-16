@@ -2,7 +2,7 @@
   <div class="card-body">
     <div class="row">
       <div class="col-sm-2">
-        <input type="checkbox" id="primary" />
+        <input type="checkbox" id="primary" #checkboxFilme (click)="onSelectionChange(checkboxFilme.checked)"/>
       </div>
       <div class="col-sm-10">
         <p id="name">{{ name }}</p>

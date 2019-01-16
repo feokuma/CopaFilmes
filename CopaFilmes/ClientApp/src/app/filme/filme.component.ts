@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { Filme } from './filme';
 
 @Component({
   selector: 'app-filme',
@@ -8,11 +10,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FilmeComponent implements OnInit {
 
   @Input() name: string = '';
-  @Input() year: number = 1970;
+  @Input() year: number = 0;
+
+  @Output() selectionChange:EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
+  onSelectionChange(event){
+    this.selectionChange.emit({checked: event, name:this.name});
+  }
 }

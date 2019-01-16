@@ -1,6 +1,7 @@
 .card {
-    width: 285px;
-    height: 60px;
+    width: 275px;
+    height: 80px;
+    margin: 5px;
 }
 
 p {

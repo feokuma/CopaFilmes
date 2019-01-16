@@ -1,16 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FilmesService } from './filme/filmes.service';
+import { Filme } from './filme/filme';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
 
-  filmes = [{ name: "Os Incriveis", year: 2010 }, { name: "Thor", year: 2017 }, { name: "Vingadores", year: 2013 }, { name: "Vingadores", year: 2013 },
-            { name: "Os Incriveis", year: 2010 }, { name: "Thor", year: 2017 }, { name: "Vingadores", year: 2013 }, { name: "Vingadores", year: 2013 },
-            { name: "Os Incriveis", year: 2010 }, { name: "Thor", year: 2017 }, { name: "Vingadores", year: 2013 }, { name: "Vingadores", year: 2013 },
-            { name: "Os Incriveis", year: 2010 }, { name: "Thor", year: 2017 }, { name: "Vingadores", year: 2013 }, { name: "Vingadores", year: 2013 }]
+  filmes: Array<Filme>;
+  countSelectedMovies: number = 0;
 
+  constructor(private filmesService: FilmesService){ }
+
+  ngOnInit(){
+    this.filmesService.list().subscribe(data => this.filmes = data);
+  }
+
+  selectionChange(event){
+    event.checked ? this.countSelectedMovies++ : this.countSelectedMovies--;
+    console.log(`${event.name} - ${event.checked}`);
+  }
+
+  executeChampionship(){
+    console.log(event);
+  }
 }

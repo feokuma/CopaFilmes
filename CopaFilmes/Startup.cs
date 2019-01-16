@@ -22,6 +22,7 @@ namespace CopaFilmes
         {
             services.AddMvc();
             services.AddHttpClient();
+            services.AddCors();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -46,6 +47,9 @@ namespace CopaFilmes
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            app.UseCors(
+                options => options.AllowAnyOrigin()
+            );
 
             app.UseMvc(routes =>
             {
