@@ -10,6 +10,8 @@ import { Filme } from './filme/filme';
 export class AppComponent implements OnInit {
 
   filmes: Array<Filme>;
+  selectedFilmes = [];
+  champions = [];
   countSelectedMovies: number = 0;
 
   constructor(private filmesService: FilmesService){ }
@@ -19,11 +21,23 @@ export class AppComponent implements OnInit {
   }
 
   selectionChange(event){
-    event.checked ? this.countSelectedMovies++ : this.countSelectedMovies--;
-    console.log(`${event.name} - ${event.checked}`);
+     if(event.checked){
+      // insert filme to array
+      this.selectedFilmes.push(event.filme);
+    }
+    else {
+      // find index of unselected filme
+      let index = this.selectedFilmes.indexOf(event.filme);
+      // remove filme from array
+      this.selectedFilmes.splice(index, 1);
+    }
+
+    // update count selected items
+    this.countSelectedMovies = this.selectedFilmes.length;
   }
 
   executeChampionship(){
-    console.log(event);
+    this.filmesService.executeChampionship(this.selectedFilmes).subscribe(data => this.champions = data);
+    console.log(JSON.stringify(this.champions));
   }
 }

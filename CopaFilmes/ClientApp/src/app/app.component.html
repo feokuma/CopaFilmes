@@ -1,8 +1,10 @@
 <div class="container">
-  <app-title text="Fase de seleção" description="Selecione 8 filmes que você deseja que entrem na competição e depois pressione o botão
+  <app-title *ngIf="champions.length === 0" text="Fase de seleção" description="Selecione 8 filmes que você deseja que entrem na competição e depois pressione o botão
   gerar meu campeonato para prosseguir"></app-title>
 
-  <div id="selectionMovies" >
+  <app-title *ngIf="champions.length > 0" text="Resultado Final" description="Veja o resultado final do Campeonato de filmes de forma simples e rápida"></app-title>
+
+  <div id="selectionMovies" *ngIf="champions.length === 0">
     <div class="row">
       <div class="col-md-9">
         <p>Selecionados</p>
@@ -14,7 +16,17 @@
     </div>
     <div class="row">
       <div *ngFor="let filme of filmes">
-        <app-filme name="{{ filme.titulo }}" year="{{ filme.anoLancamento }}" (selectionChange)="selectionChange($event, name)"></app-filme>
+        <app-filme name="{{ filme.titulo }}" year="{{ filme.ano }}" [objFilmeReference]="filme" (selectionChange)="selectionChange($event, name)"></app-filme>
+      </div>
+    </div>
+  </div>
+
+  <div id="championMovies" *ngIf="champions.length > 0">
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngFor="let filme of champions; let i = index">
+          <podium position="{{ i + 1 }}" filmeName="{{ filme.titulo }}"></podium>
+        </div>
       </div>
     </div>
   </div>

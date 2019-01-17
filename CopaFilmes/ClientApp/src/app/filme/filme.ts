@@ -1,6 +1,6 @@
 export interface Filme{
     id: string;
     titulo: string;
-    anoLancamento: number;
+    ano: number;
     nota: number;
 }

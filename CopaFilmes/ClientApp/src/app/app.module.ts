@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { TitleComponent } from './title/title.component';
 import { FilmeComponent } from './filme/filme.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PodiumComponent } from './podium/podium.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TitleComponent,
-    FilmeComponent
+    FilmeComponent,
+    PodiumComponent
   ],
   imports: [
     BrowserModule,

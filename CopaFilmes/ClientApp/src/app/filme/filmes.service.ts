@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Filme } from './filme';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,23 +9,22 @@ import { Filme } from './filme';
 export class FilmesService {
 
   private readonly API = 'https://localhost:5001/api/filmes';
-  
+
   private filmes;
+  private champions;
 
   constructor(private http: HttpClient) { }
 
-  list(){
+  list() {
     this.filmes = this.http.get<Filme[]>(this.API);
     return this.filmes;
   }
 
-  executeChampionship(movieNames:string[]){
-    var selectedMovies = new Array();
-
-    movieNames.forEach(element => {
-      selectedMovies.push(this.filmes.find(x => x.titulo === element))
-    });
-
-    console.log(selectedMovies);
+  executeChampionship(movieNames): Observable<Filme[]> {
+    var header = new HttpHeaders();
+    header.append("Access-Control-Allow-Origin", "*");
+    this.champions = this.http.post<Filme[]>(this.API, movieNames, {headers: header});
+    return this.champions;
   }
+
 }
