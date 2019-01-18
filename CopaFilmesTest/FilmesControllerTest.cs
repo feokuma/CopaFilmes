@@ -53,7 +53,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt3606756",
                 titulo = "Os Incríveis 2",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 8.5
             });
 
@@ -61,7 +61,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt4881806",
                 titulo = "Jurassic World: Reino Ameaçado",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 6.7
             });
 
@@ -69,7 +69,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt5164214",
                 titulo = "Oito Mulheres e um Segredo",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 6.3
             });
 
@@ -77,7 +77,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt7784604",
                 titulo = "Hereditário",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 7.8
             });
 
@@ -85,7 +85,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt4154756",
                 titulo = "Vingadores: Guerra Infinita",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 8.8
             });
 
@@ -93,7 +93,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt5463162",
                 titulo = "Deadpool 2",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 8.1
             });
 
@@ -101,7 +101,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt3778644",
                 titulo = "Han Solo: Uma História Star Wars",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 7.2
             });
 
@@ -109,7 +109,7 @@ namespace CopaFilmesTest.Controllers
             {
                 id = "tt3501632",
                 titulo = "Thor: Ragnarok",
-                anoLancamento = 0,
+                ano = 0,
                 nota = 7.9
             });
 
