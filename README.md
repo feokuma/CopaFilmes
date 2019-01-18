@@ -6,10 +6,13 @@ na primeira posição disputa contra o filme da última posição, o segundo com
 assim por diante. 
 
 ## Executando a aplicação
-Utilizando um terminal navegue até para a pasta o diretório onde a aplicação foi baixada até a pasta "CopaFilmes/ClientApp" e execute o comando "ng build" para compilar o projeto angular:
+Utilizando um terminal navegue até para a pasta o diretório onde a aplicação foi baixada até a pasta "CopaFilmes/ClientApp" e execute o comando "npm install" para instalar as dependências do frontend e "ng build" para compilar o projeto angular:
 ```
+c:\CopaFilmes\CopaFilmes\ClientApp npm install
+
 c:\CopaFilmes\CopaFilmes\ClientApp ng build
 ```
+
 
 Após compilar a aplicação angular, volte para o diretório acima, na pasta "CopaFilmes" e execute o comando "dotnet run" como no exemplo abaixo:
 ```
