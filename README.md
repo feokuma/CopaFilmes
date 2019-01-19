@@ -68,3 +68,13 @@ c:\CopaFilmes\CopaFilmes\ClientApp ng test
 ```
 
 Ao executar este comando, será aberto o browser para as simulações dos testes no frontend. Os resultados são apresentados no terminal e no browser. 
+
+```
+10% building modules 1/1 modules 0 active(node:10996) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
+19 01 2019 02:10:48.732:WARN [karma]: No captured browser, open http://localhost:9876/
+19 01 2019 02:10:48.756:INFO [karma]: Karma v1.7.1 server started at http://0.0.0.0:9876/
+19 01 2019 02:10:48.756:INFO [launcher]: Launching browser Chrome with unlimited concurrency
+19 01 2019 02:10:48.766:INFO [launcher]: Starting browser Chrome                                                                19 01 2019 02:10:55.682:WARN [karma]: No captured browser, open http://localhost:9876/
+19 01 2019 02:10:56.525:INFO [Chrome 71.0.3578 (Windows 10.0.0)]: Connected on socket iBgb42Y3-mtsVO5GAAAA with id 68746801
+Chrome 71.0.3578 (Windows 10.0.0): Executed 8 of 8 SUCCESS (0.374 secs / 0.347 secs)
+```
