@@ -22,4 +22,15 @@ describe('PodiumComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set position', () => {
+    component.position = "1";
+    expect(component.position).toBe('1');
+    expect(document.getElementById('position').innerText).toBe('1º');
+  });
+
+  it('should set movie name', () => {
+    component.filmeName = "Test Movie";
+    expect(component.filmeName).toBe("Test Movie");
+  });
 });

@@ -22,4 +22,14 @@ describe('FilmeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should set movie name', () => {
+    component.name = 'Movie Name';
+    expect(component.name).toBe('Movie Name');
+  });
+
+  it('should set movie year', () => {
+    component.year = 2018;
+    expect(component.year).toBe(2018);
+  });
 });

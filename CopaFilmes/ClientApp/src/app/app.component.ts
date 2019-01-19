@@ -8,7 +8,6 @@ import { Filme } from './filme/filme';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   filmes: Array<Filme>;
   selectedFilmes = [];
   champions = [];

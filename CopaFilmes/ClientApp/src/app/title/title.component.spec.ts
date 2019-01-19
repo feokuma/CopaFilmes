@@ -16,10 +16,17 @@ describe('TitleComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TitleComponent);
     component = fixture.componentInstance;
+    component.text = "Title Test";
+    component.description = "Description Test";
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should change text', () => {
+    expect(component.text).toEqual("Title Test");
+    expect(component.description).toEqual("Description Test");
   });
 });

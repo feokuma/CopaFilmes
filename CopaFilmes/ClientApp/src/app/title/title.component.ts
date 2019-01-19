@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TitleComponent {
 
-  @Input() text: string = 'Angular Teste';
+  @Input() text: string = '';
   @Input() description: string = '';
 
 }
