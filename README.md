@@ -38,6 +38,7 @@ Ao executar o comando para gerar o campeonato, um lista com o resultado será ap
 ## Execução dos testes unitários
 Os testes unitários garantem que cada método esteja funcionando como o esperado e, caso algum método não se comporte como o esperado, é possível identificar com mais rapidez e precisão. 
 
+### asp.net core
 Para executar os testes da aplicação asp.net core, navegue até o diretório raiz do projeto e execute o comando "dotnet test" como no exemplo abaixo:
 ```
 c:\CopaFilmes dotnet run
@@ -59,3 +60,11 @@ Total tests: 3. Passed: 3. Failed: 0. Skipped: 0.
 Test Run Successful.
 Test execution time: 3.3251 Seconds
 ```
+
+### angular 6
+Para executar os testes unitários do frontend, navegue até o diretório "ClientApp" e execute o comando "ng test" como no exemplo abaixo:
+```
+c:\CopaFilmes\CopaFilmes\ClientApp ng test
+```
+
+Ao executar este comando, será aberto o browser para as simulações dos testes no frontend. Os resultados são apresentados no terminal e no browser. 

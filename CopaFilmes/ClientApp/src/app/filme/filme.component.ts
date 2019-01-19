@@ -12,7 +12,7 @@ export class FilmeComponent implements OnInit {
   @Input() name: string = '';
   @Input() year: number = 0;
 
-  @Input() objFilmeReference: Filme;
+  @Input() objFilmeReference: Filme;  
 
   @Output() selectionChange:EventEmitter<any> = new EventEmitter();
 
